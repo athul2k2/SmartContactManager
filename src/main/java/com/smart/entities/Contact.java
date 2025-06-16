@@ -15,10 +15,10 @@ public class Contact {
     private String email;
     private String phone;
     private String image;
-    @Column(length = 50000)
+    @Column(length = 1000)
     private String description;
 
-    @ManyToOne()
+    @ManyToOne
     private User user;
 
 
