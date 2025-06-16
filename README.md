@@ -48,3 +48,7 @@ A web-based application to manage your contacts securely with user authenticatio
    ```bash
    git clone https://github.com/yourusername/smart-contact-manager.git
    cd smart-contact-manager
+
+   
+## ER-Diagram
+![diagram-export-16-06-2025-23_58_54](https://github.com/user-attachments/assets/10c4581f-7210-481d-8296-bfc32385ad82)
