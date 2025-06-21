@@ -75,7 +75,7 @@ Access at http://localhost:8080
 - [ ] Implement OAuth2 login
 - [ ] Mobile app (React Native)
       
-## journey
+journey
     title Project Evolution Path
     section Now
       Basic CRUD: 5
