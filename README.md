@@ -63,8 +63,7 @@ A web-based application to manage your contacts securely with user authenticatio
 | Form Validation       | Hibernate Validator                | 15+ rules |
 | AWS Deployment        | EC2, RDS Aurora, Docker            | 99.5% uptime |
 
-## 🛠️ Installation
-
-```bash
-# Clone with SSH
-git clone git@github.com:athul2k2/smart-contact-manager.git
+## 🗺️ Future Roadmap
+- [ ] Add CSV import/export
+- [ ] Implement OAuth2 login
+- [ ] Mobile app (React Native)
