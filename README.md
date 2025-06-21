@@ -74,3 +74,15 @@ Access at http://localhost:8080
 - [ ] Add CSV import/export
 - [ ] Implement OAuth2 login
 - [ ] Mobile app (React Native)
+      
+## journey
+    title Project Evolution Path
+    section Now
+      Basic CRUD: 5
+      Simple Auth: 5
+    section Next
+      API Versioning: 3
+      Export PDF: 2
+    section Later
+      Microservices: 1
+      React Frontend: 1
