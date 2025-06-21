@@ -52,3 +52,17 @@ A web-based application to manage your contacts securely with user authenticatio
    
 ## ER-Diagram
 ![diagram-export-16-06-2025-23_58_54](https://github.com/user-attachments/assets/10c4581f-7210-481d-8296-bfc32385ad82)
+
+src/
+├── main/
+│   ├── java/
+│   │   └── com/athul/contactmanager/
+│   │       ├── config/       # SecurityConfig, WebMvcConfig
+│   │       ├── controllers/  # ContactController, UserController
+│   │       ├── models/       # JPA Entities
+│   │       ├── repositories/ # Custom JPQL queries
+│   │       └── services/     # Business logic
+│   └── resources/
+│       ├── static/           # CSS/JS
+│       ├── templates/        # Thymeleaf pages
+│       └── application.yml   # DB config
