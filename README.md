@@ -1,27 +1,26 @@
-# Smart Contact Manager
+# 📞 Smart Contact Manager 
+*A simple yet powerful contact management application built with Spring Boot*
 
-A web-based application to manage your contacts securely with user authentication and CRUD functionality.
-![Java](https://img.shields.io/badge/Java-17-blue)
-![Spring](https://img.shields.io/badge/Spring_Boot-3.1-green)
-![MySQL](https://img.shields.io/badge/MySQL-8.0-orange)
-![Thymeleaf](https://img.shields.io/badge/Thymeleaf-3.1-yellow)
+![Java](https://img.shields.io/badge/Java-17-%23ED8B00)
+![Spring](https://img.shields.io/badge/Spring_Boot-3.1-%236DB33F)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-%234479A1)
+![Thymeleaf](https://img.shields.io/badge/Thymeleaf-3.1-%23005F0F)
 
-## Features
+## ✨ Features
 
-### User Management
-- User registration with validation
-- Secure login/logout functionality
-- Authentication with Spring Security
+### 👤 User Management
+- ✅ Secure registration/login
+- 🔐 Password encryption
+- 🚪 Session-based logout
 
-### Contact Management
-- 📋 Add new contacts with details
-- 🔍 Search contacts by name/attributes
-- ✏️ Update existing contact information
+### 📇 Contact Operations
+- ➕ Add new contacts
+- 🔍 Search contacts
+- ✏️ Update existing contacts
 - 🗑️ Delete contacts
-- 📄 Paginated contact listing
-- 🔒 User-specific contact storage
+- 📄 Paginated listing
 
-## Technology Stack
+## 🛠️ Tech Stack
 
 **Backend:**
 - Spring MVC
