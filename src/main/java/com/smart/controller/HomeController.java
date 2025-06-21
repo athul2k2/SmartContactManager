@@ -1,5 +1,6 @@
 package com.smart.controller;
 
+import com.smart.entities.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
-    @RequestMapping("/home")
+    @RequestMapping("/")
     public String home(Model model){
         model.addAttribute("title","Home - SmartContactManager");
         return "home";
@@ -19,6 +20,12 @@ public class HomeController {
         return "about";
     }
 
+    @RequestMapping("/signup")
+    public String signup(Model model){
+        model.addAttribute("title","Signup - SmartContactManager");
+        model.addAttribute("user",new User());
+        return "signup";
+    }
 
 
 
