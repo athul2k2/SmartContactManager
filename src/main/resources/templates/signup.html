@@ -14,8 +14,8 @@
           <div class="my-card">
 
 
-            <div th:if="${message}" th:classappend="${message.type}" class="alert">
-              <p th:text="${message.content}"></p>
+            <div th:if="${message}" th:class="'alert ' + ${message.type}" role="alert">
+              <p class="mb-0" th:text="${message.content}"></p>
             </div>
 
             <h1 class="text-center">Register now</h1>

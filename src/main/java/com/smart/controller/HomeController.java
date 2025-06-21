@@ -33,48 +33,45 @@ public class HomeController {
     }
 
     @RequestMapping("/signup")
-    public String signup(Model model, HttpSession session){
-        model.addAttribute("title","Signup - SmartContactManager");
-        model.addAttribute("user",new User());
-        
-        // Add message from session to model if exists
-        Message message = (Message) session.getAttribute("message");
-        if (message != null) {
-            model.addAttribute("message", message);
-            session.removeAttribute("message");
+    public String signup(Model model) {
+        model.addAttribute("title", "Signup - SmartContactManager");
+        if (!model.containsAttribute("user")) {
+            model.addAttribute("user", new User());
         }
-        
         return "signup";
     }
 
-    @RequestMapping(value = "/do_register" , method = RequestMethod.POST)
+    @RequestMapping(value = "/do_register", method = RequestMethod.POST)
     public String registerUser(@ModelAttribute("user") User user,
-                               @RequestParam(value = "agreement",defaultValue = "false")
-                               Boolean agreement,Model model,
-                               HttpSession session){
-
+                             @RequestParam(value = "agreement", defaultValue = "false") Boolean agreement,
+                             Model model,
+                             HttpSession session) {
         try {
-            if(!agreement){
-                System.out.println("You have not agreed the terms and conditions");
-                throw new Exception("you have not agreed the T&C");
+            if (!agreement) {
+                throw new Exception("You must agree to the terms and conditions");
             }
 
             user.setRole("ROLE_USER");
             user.setEnabled(true);
 
-            System.out.println("User:=>"+ user);
-            System.out.println("Agreement;=>"+ agreement);
+            System.out.println("User:=>" + user);
+            System.out.println("Agreement:=>" + agreement);
 
             this.userRepo.save(user);
 
-            model.addAttribute("user",new User());
-            session.setAttribute("message",new Message("Successfully Registered !!","alert-success"));
-
+            // Clear the form
+            model.addAttribute("user", new User());
+            // Add success message to model
+            model.addAttribute("message", new Message("Successfully Registered!!", "alert-success"));
+            
             return "signup";
-        } catch (Exception e){
+            
+        } catch (Exception e) {
             e.printStackTrace();
-            model.addAttribute("user",user);
-            session.setAttribute("message",new Message("Something Went Wrong !!"+e.getMessage(),"alert-danger"));
+            // Keep form data on error
+            model.addAttribute("user", user);
+            // Add error message to model
+            model.addAttribute("message", new Message("Error: " + e.getMessage(), "alert-danger"));
             return "signup";
         }
 
