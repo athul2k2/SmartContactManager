@@ -49,7 +49,15 @@ A web-based application to manage your contacts securely with user authenticatio
    git clone https://github.com/yourusername/smart-contact-manager.git
    cd smart-contact-manager
 
-   
+🔧 Setup Instructions
+Clone the repository
+
+Configure MySQL in application.properties
+
+Run mvn spring-boot:run
+
+Access at http://localhost:8080
+
 ## ER-Diagram
 ![diagram-export-16-06-2025-23_58_54](https://github.com/user-attachments/assets/10c4581f-7210-481d-8296-bfc32385ad82)
 
