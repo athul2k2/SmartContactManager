@@ -12,6 +12,12 @@
       <div class="row">
         <div class="col-md-8 offset-md-2">
           <div class="my-card">
+
+
+            <div th:if="${message}" th:classappend="${message.type}" class="alert">
+              <p th:text="${message.content}"></p>
+            </div>
+
             <h1 class="text-center">Register now</h1>
             <form action="" th:action="@{/do_register}" method="post" th:object="${user}">
               <!-- name -->
@@ -41,7 +47,7 @@
               </div>
               <!-- terms and conditions -->
               <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="agreement" name="agreement" required>
+                <input type="checkbox" class="form-check-input" id="agreement" name="agreement">
                 <label class="form-check-label" for="agreement">I accept the terms and conditions</label>
               </div>
               <div class="container text-center pt-4">
