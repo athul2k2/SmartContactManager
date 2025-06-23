@@ -1,27 +1,53 @@
 package com.smart.entities;
 
-import jakarta.persistence.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
 @Entity
-@Table(name="USER")
+@Table(name = "USER")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @NotBlank(message = "Name is required")
+    @Size(min = 2, max = 50, message = "Name must be between 2 and 50 characters")
+    @Column(nullable = false, length = 50)
     private String name;
-    @Column(unique = true)
+
+    @NotBlank(message = "Email is required")
+    @Email(message = "Please provide a valid email address")
+    @Column(nullable = false, unique = true, length = 100)
     private String email;
+
+    @NotBlank(message = "Password is required")
+    @Size(min = 5, message = "Password must be at least 5 characters long")
+    @Column(nullable = false, length = 100)
     private String password;
+
     private String role;
     private boolean enabled;
     private String imageUrl;
+
     @Column(length = 500)
     private String about;
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "user")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
     private List<Contact> contactList = new ArrayList<>();
 
     public User() {
@@ -102,16 +128,16 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", role='" + role + '\'' +
-                ", enabled=" + enabled +
-                ", imageUrl='" + imageUrl + '\'' +
-                ", about='" + about + '\'' +
-                ", contactList=" + contactList +
-                '}';
+        return "User{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + ", email='" + email + '\''
+                + ", password='" + password + '\''
+                + ", role='" + role + '\''
+                + ", enabled=" + enabled
+                + ", imageUrl='" + imageUrl + '\''
+                + ", about='" + about + '\''
+                + ", contactList=" + contactList
+                + '}';
     }
 }
