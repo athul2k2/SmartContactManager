@@ -51,9 +51,6 @@ public class MyConfig {
                 )
                 .formLogin(form -> form
                 .loginPage("/signin")
-                .loginProcessingUrl("/dologin")
-                .defaultSuccessUrl("/user/dashboard")
-                .failureUrl("/signin?error=true")
                 .permitAll()
                 )
                 .logout(logout -> logout
