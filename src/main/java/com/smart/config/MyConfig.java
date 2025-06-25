@@ -45,12 +45,23 @@ public class MyConfig {
                 .authorizeHttpRequests(authz -> authz
                 .requestMatchers("/admin/**").hasRole("ADMIN")
                 .requestMatchers("/user/**").hasRole("USER")
-                .requestMatchers("/**").permitAll() // This matches your original config
+                .requestMatchers("/signin", "/signup", "/do_register", "/", "/about").permitAll()
+                .requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
+                .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
+                .loginPage("/signin")
+                .loginProcessingUrl("/dologin")
+                .defaultSuccessUrl("/user/dashboard")
+                .failureUrl("/signin?error=true")
                 .permitAll()
                 )
-                .csrf(csrf -> csrf.disable());// Matches your original config
+                .logout(logout -> logout
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/signin?logout=true")
+                .permitAll()
+                )
+                .csrf(csrf -> csrf.disable());
 
         return http.build();
     }
