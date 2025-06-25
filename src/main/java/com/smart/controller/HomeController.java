@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,6 +22,9 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class HomeController {
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
@@ -92,7 +96,11 @@ public class HomeController {
             // Trim whitespace from fields
             user.setName(user.getName().trim());
             user.setEmail(user.getEmail().trim());
-            user.setPassword(user.getPassword().trim());
+
+            //Password setting
+            String rawPassword = user.getPassword().trim();
+            String encodedPassword = passwordEncoder.encode(rawPassword);
+            user.setPassword(encodedPassword);
 
             // Handle about field - set to empty string if null
             if (user.getAbout() == null) {
